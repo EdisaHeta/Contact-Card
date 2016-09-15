@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact Card</title>
+		<style>
+
+			body{
+				width: 950px;
+				height: auto;
+				margin:0px auto;
+			}
+
+			#container #div1,#div2{
+				display: inline-block;
+			}
+
+			#div1{
+				position: fixed;
+			}
+
+			#div2{
+	    		text-align: right;
+	    		margin-left: 50%;
+			}
+			textarea{
+				height: 100px;
+			}
+
+	    	.card{
+	    		border: 1px solid black;
+	    		text-align: center;
+	    		margin: 5px;
+	    	}
+	    	.card .show{
+	    		border: none;
+	    	}
+
+ 		</style>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+ 		<script>
+ 			$(document).ready(function(){
+
+ 				function addUser(){
+ 					var value1=$("#first").val();
+ 					var value2=$("#last").val();
+ 					var value3=$("#text").val();
+ 					$("#div2").append('<div class="card"><h2>'+value1+' '+value2+'</h2><p>Click for description!</p></div>');
+ 						$('.card').click(function(){
+ 							$(this).html('<p>'+value3+'</p>');
+ 						});
+ 				};
+
+ 				$('form').submit(function(){
+				addUser();
+				return false
+				});
+
+			});
+
+		</script>
+	<body>
+	<div id="container">
+		<div id="div1">
+			<form>
+				<p>First Name: <input type="text" name="FirstName" id="first"></p>
+				<p>Last Name: <input type="text" name="LastName" id="last"></p>
+				<p>Description: <br /><textarea value="Enter Description" id="text">Enter Description</textarea></p>
+				<p><input type="submit" name="submit" value="Add User"></p>
+			</form>
+		</div>
+		<div id="div2">
+		</div>
+	</div>
+	</body>
+</html>
